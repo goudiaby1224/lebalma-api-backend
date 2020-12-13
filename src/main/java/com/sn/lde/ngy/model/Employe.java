@@ -7,6 +7,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Table(name = "EMPLOYE")
@@ -22,7 +23,7 @@ public class Employe {
 
     private String prenom;
 
-    private String adresse;
+ 
 
     private String metier;
 
@@ -39,6 +40,18 @@ public class Employe {
 
     @ManyToOne
     private Partenaire partenaire;
+    
+    @OneToOne
+    private Adresse adresse;
+    
+    
+    public Adresse getAdresse() {
+        return adresse;
+    }
+
+    public void setAdresse(Adresse adresse) {
+        this.adresse = adresse;
+    }
 
     public Long getId() {
         return id;
@@ -70,14 +83,6 @@ public class Employe {
 
     public void setPrenom(String prenom) {
         this.prenom = prenom;
-    }
-
-    public String getAdresse() {
-        return adresse;
-    }
-
-    public void setAdresse(String adresse) {
-        this.adresse = adresse;
     }
 
     public String getMetier() {

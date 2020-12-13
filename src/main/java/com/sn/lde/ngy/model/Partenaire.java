@@ -1,12 +1,17 @@
 package com.sn.lde.ngy.model;
 
 import java.util.Date;
+import java.util.List;
+import java.util.Set;
+
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Table(name = "PARTENAIRE")
@@ -18,8 +23,6 @@ public class Partenaire {
 
     private String raisonSocial;
 
-    private String adresse;
-
     private String telephone;
 
     private String responsable;
@@ -30,6 +33,12 @@ public class Partenaire {
 
     @Enumerated(EnumType.STRING)
     private Types Type;
+    
+    @OneToMany(mappedBy="partenaire")
+    private Set<Employe> employes;
+    
+    @OneToOne
+    private Adresse adresse;
 
     public Long getId() {
         return id;
@@ -37,6 +46,23 @@ public class Partenaire {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+  
+    public Adresse getAdresse() {
+        return adresse;
+    }
+
+    public void setAdresse(Adresse adresse) {
+        this.adresse = adresse;
+    }
+
+    public Set<Employe> getEmployes() {
+        return employes;
+    }
+
+    public void setEmployes(Set<Employe> employes) {
+        this.employes = employes;
     }
 
     public String getRaisonSocial() {
@@ -47,14 +73,8 @@ public class Partenaire {
         this.raisonSocial = raisonSocial;
     }
 
-    public String getAdresse() {
-        return adresse;
-    }
-
-    public void setAdresse(String adresse) {
-        this.adresse = adresse;
-    }
-
+  
+   
     public String getTelephone() {
         return telephone;
     }
