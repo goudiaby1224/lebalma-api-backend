@@ -20,7 +20,7 @@ import com.sn.lde.ngy.model.Role;
 import com.sn.lde.ngy.service.EmployeService;
 
 @RestController
-@RequestMapping("/employes")
+@RequestMapping("/lebalma/employes")
 public class EmployeController {
 
     private EmployeService employeService;

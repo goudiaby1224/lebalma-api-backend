@@ -20,7 +20,7 @@ import com.sn.lde.ngy.model.User;
 import com.sn.lde.ngy.service.UserService;
 
 @RestController
-@RequestMapping("/users")
+@RequestMapping("/lebalma/users")
 public class UserController {
 
 

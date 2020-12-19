@@ -19,7 +19,7 @@ import com.sn.lde.ngy.model.Utilisateur;
 import com.sn.lde.ngy.service.UtilisateurService;
 
 @RestController
-@RequestMapping("/utilisateurs")
+@RequestMapping("/lebalma/utilisateurs")
 public class UtilisateurController {
 
     private UtilisateurService utilisateurService;

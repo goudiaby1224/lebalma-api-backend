@@ -17,7 +17,7 @@ import com.sn.lde.ngy.model.ServiceOumou;
 import com.sn.lde.ngy.service.ServiceOumouService;
 
 @RestController
-@RequestMapping("/serviceoumous")
+@RequestMapping("/lebalma/serviceoumous")
 public class ServiceOumouController {
 
     private ServiceOumouService serviceOumouService;

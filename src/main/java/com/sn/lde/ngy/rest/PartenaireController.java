@@ -20,7 +20,7 @@ import com.sn.lde.ngy.model.Types;
 import com.sn.lde.ngy.service.PartenaireService;
 
 @RestController
-@RequestMapping("/partenaires")
+@RequestMapping("/lebalma/partenaires")
 public class PartenaireController {
 
     private PartenaireService partenaireService;
