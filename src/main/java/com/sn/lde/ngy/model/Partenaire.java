@@ -1,13 +1,7 @@
 package com.sn.lde.ngy.model;
 
 import java.util.Date;
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Table(name = "PARTENAIRE")
 @Entity
@@ -16,6 +10,7 @@ public class Partenaire {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(name = "RAISONSOCIAL")
     private String raisonSocial;
 
     private String adresse;
@@ -25,7 +20,7 @@ public class Partenaire {
     private String responsable;
 
     private String mail;
-
+    @Column(name = "DATEMISEENSERVICE")
     private Date dateMiseEnService;
 
     @Enumerated(EnumType.STRING)
@@ -94,7 +89,5 @@ public class Partenaire {
     public void setType(Types type) {
         Type = type;
     }
-
-
 
 }

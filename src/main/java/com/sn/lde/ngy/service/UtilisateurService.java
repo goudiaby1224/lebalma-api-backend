@@ -2,7 +2,7 @@ package com.sn.lde.ngy.service;
 
 import java.util.List;
 import org.springframework.stereotype.Service;
-import com.sn.lde.ngy.model.Utilisateur;
+import com.sn.lde.ngy.model.UtilisateurOumou;
 import com.sn.lde.ngy.repository.UtilisateurRepository;
 
 @Service
@@ -16,33 +16,33 @@ public class UtilisateurService {
     }
 
 
-    public List<Utilisateur> findAll() {
+    public List<UtilisateurOumou> findAll() {
         return utilisateurRepository.findAll();
     }
 
-    public Utilisateur findById(Long id) {
+    public UtilisateurOumou findById(Long id) {
         return utilisateurRepository.findById(id).get();
     }
 
-    public void create(Utilisateur utilisateur) {
-        utilisateurRepository.save(utilisateur);
+    public void create(UtilisateurOumou utilisateurOumou) {
+        utilisateurRepository.save(utilisateurOumou);
     }
 
-    public void uptdate(Utilisateur utilisateur) {
-        Utilisateur oldUtilisateur = utilisateurRepository.findById(utilisateur.getId()).get();
+    public void uptdate(UtilisateurOumou utilisateurOumou) {
+        UtilisateurOumou oldUtilisateurOumou = utilisateurRepository.findById(utilisateurOumou.getId()).get();
 
-        oldUtilisateur.setAdresse(utilisateur.getAdresse());
-        oldUtilisateur.setMail(utilisateur.getMail());
-        oldUtilisateur.setMatricule(utilisateur.getMatricule());
-        oldUtilisateur.setMetier(utilisateur.getMetier());
-        oldUtilisateur.setNom(utilisateur.getNom());
-        oldUtilisateur.setNomUtilisateur(utilisateur.getNomUtilisateur());
-        oldUtilisateur.setPrenom(utilisateur.getPrenom());
-        oldUtilisateur.setRole(utilisateur.getRole());
-        oldUtilisateur.setService(utilisateur.getService());
-        oldUtilisateur.setTel(utilisateur.getTel());
+        oldUtilisateurOumou.setAdresse(utilisateurOumou.getAdresse());
+        oldUtilisateurOumou.setMail(utilisateurOumou.getMail());
+        oldUtilisateurOumou.setMatricule(utilisateurOumou.getMatricule());
+        oldUtilisateurOumou.setMetier(utilisateurOumou.getMetier());
+        oldUtilisateurOumou.setNom(utilisateurOumou.getNom());
+        oldUtilisateurOumou.setNomUtilisateur(utilisateurOumou.getNomUtilisateur());
+        oldUtilisateurOumou.setPrenom(utilisateurOumou.getPrenom());
+        oldUtilisateurOumou.setRole(utilisateurOumou.getRole());
+        oldUtilisateurOumou.setService(utilisateurOumou.getService());
+        oldUtilisateurOumou.setTel(utilisateurOumou.getTel());
 
-        utilisateurRepository.save(oldUtilisateur);
+        utilisateurRepository.save(oldUtilisateurOumou);
 
 
 

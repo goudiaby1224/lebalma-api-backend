@@ -6,7 +6,7 @@ import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 import com.sn.lde.ngy.converter.RoleConverter;
 import com.sn.lde.ngy.model.Role;
-import com.sn.lde.ngy.model.Utilisateur;
+import com.sn.lde.ngy.model.UtilisateurOumou;
 import com.sn.lde.ngy.service.UtilisateurService;
 
 @CrossOrigin
@@ -14,36 +14,36 @@ import com.sn.lde.ngy.service.UtilisateurService;
 @RequestMapping("/lebalma/utilisateurs")
 public class UtilisateurController {
 
-    private UtilisateurService utilisateurService;
+    private final UtilisateurService utilisateurService;
 
-    public UtilisateurController(UtilisateurService utilisateurService) {
+    public UtilisateurController(final UtilisateurService utilisateurService) {
         super();
         this.utilisateurService = utilisateurService;
     }
 
     @ResponseStatus(code = HttpStatus.OK)
     @GetMapping
-    public List<Utilisateur> find() {
+    public List<UtilisateurOumou> find() {
         return utilisateurService.findAll();
     }
 
     @ResponseStatus(code = HttpStatus.OK)
     @GetMapping("/{id}")
-    public Utilisateur findById(@PathVariable Long id) {
+    public UtilisateurOumou findById(@PathVariable Long id) {
         return utilisateurService.findById(id);
     }
 
     @ResponseStatus(code = HttpStatus.OK)
     @PostMapping
-    public void create(@RequestBody Utilisateur utilisateur) {
-        utilisateurService.create(utilisateur);
+    public void create(@RequestBody UtilisateurOumou utilisateurOumou) {
+        utilisateurService.create(utilisateurOumou);
     }
 
 
     @ResponseStatus(code = HttpStatus.OK)
     @PutMapping
-    public void update(@RequestBody Utilisateur utilisateur) {
-        utilisateurService.uptdate(utilisateur);
+    public void update(@RequestBody UtilisateurOumou utilisateurOumou) {
+        utilisateurService.uptdate(utilisateurOumou);
     }
 
 

@@ -1,10 +1,7 @@
 package com.sn.lde.ngy.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.List;
 
 @Table( name ="SERVICEOUMOU" )
 @Entity
@@ -17,6 +14,8 @@ public class ServiceOumou {
     private String nom;
     
     private String responsable;
+    @OneToMany
+    private List<UtilisateurOumou> userList;
 
     public Long getId() {
         return id;
@@ -41,7 +40,12 @@ public class ServiceOumou {
     public void setResponsable(String responsable) {
         this.responsable = responsable;
     }
-    
-    
 
+    public List<UtilisateurOumou> getUserList() {
+        return userList;
+    }
+
+    public void setUserList(List<UtilisateurOumou> userList) {
+        this.userList = userList;
+    }
 }
