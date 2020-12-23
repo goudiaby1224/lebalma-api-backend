@@ -49,4 +49,8 @@ public class EmployeService {
         return employeRepository.findById(id).get();
     }
 
+    public List<Employe> findByPartenaireId(Long id) {
+        return employeRepository.findByPartenaireId(id);
+    }
+
 }

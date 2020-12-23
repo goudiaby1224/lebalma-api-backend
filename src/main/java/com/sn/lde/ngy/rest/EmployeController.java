@@ -35,6 +35,12 @@ public class EmployeController {
     }
 
     @ResponseStatus(code = HttpStatus.OK)
+    @GetMapping("/partenaire/{id}")
+    public Employe findEmployees(@PathVariable Long id) {
+        return employeService.findById(id);
+    }
+
+    @ResponseStatus(code = HttpStatus.OK)
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
     public void create(@RequestBody Employe employe) {
         employeService.create(employe);
