@@ -1,5 +1,7 @@
 package com.sn.lde.ngy.model;
 
+import com.fasterxml.jackson.annotation.JsonRootName;
+
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -9,9 +11,10 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+@JsonRootName("employe")
 @Table(name = "EMPLOYE")
 @Entity
-public class Employe {
+public class EmployePartenaire {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

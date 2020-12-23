@@ -6,7 +6,7 @@ import org.springframework.http.MediaType;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 import com.sn.lde.ngy.converter.RoleConverter;
-import com.sn.lde.ngy.model.Employe;
+import com.sn.lde.ngy.model.EmployePartenaire;
 import com.sn.lde.ngy.model.Role;
 import com.sn.lde.ngy.service.EmployeService;
 
@@ -24,32 +24,32 @@ class EmployeController {
 
     @ResponseStatus(code = HttpStatus.OK)
     @GetMapping
-    public List<Employe> findAll() {
+    public List<EmployePartenaire> findAll() {
         return employeService.findAll();
     }
 
     @ResponseStatus(code = HttpStatus.OK)
     @GetMapping("/{id}")
-    public Employe find(@PathVariable Long id) {
+    public EmployePartenaire find(@PathVariable Long id) {
         return employeService.findById(id);
     }
 
     @ResponseStatus(code = HttpStatus.OK)
     @GetMapping("/partenaire/{id}")
-    public List<Employe> findEmployees(@PathVariable Long id) {
+    public List<EmployePartenaire> findEmployees(@PathVariable Long id) {
         return employeService.findByPartenaireId(id);
     }
 
     @ResponseStatus(code = HttpStatus.OK)
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
-    public void create(@RequestBody Employe employe) {
-        employeService.create(employe);
+    public void create(@RequestBody EmployePartenaire employePartenaire) {
+        employeService.create(employePartenaire);
     }
 
     @ResponseStatus(code = HttpStatus.OK)
     @PutMapping
-    public void update(@RequestBody Employe employe) {
-        employeService.updateEmploye(employe);
+    public void update(@RequestBody EmployePartenaire employePartenaire) {
+        employeService.updateEmploye(employePartenaire);
     }
 
     @ResponseStatus(code = HttpStatus.OK)

@@ -5,7 +5,7 @@ import java.util.List;
 import com.sn.lde.ngy.model.Partenaire;
 import com.sn.lde.ngy.repository.PartenaireRepository;
 import org.springframework.stereotype.Service;
-import com.sn.lde.ngy.model.Employe;
+import com.sn.lde.ngy.model.EmployePartenaire;
 import com.sn.lde.ngy.repository.EmployeRepository;
 
 @Service
@@ -21,42 +21,42 @@ public class EmployeService {
     }
 
 
-    public List<Employe> findAll() {
+    public List<EmployePartenaire> findAll() {
         return employeRepository.findAll();
     }
 
-    public void create(Employe employe) {
-        Partenaire partenaire = partenaireRepository.findById(employe.getPartenaire().getId()).orElseThrow();
-        employe.setPartenaire(partenaire);
-        employeRepository.save(employe);
+    public void create(EmployePartenaire employePartenaire) {
+        Partenaire partenaire = partenaireRepository.findById(employePartenaire.getPartenaire().getId()).orElseThrow();
+        employePartenaire.setPartenaire(partenaire);
+        employeRepository.save(employePartenaire);
     }
 
-    public void updateEmploye(Employe employe) {
-        Employe oldEmploye = employeRepository.findById(employe.getId()).orElseThrow();
+    public void updateEmploye(EmployePartenaire employePartenaire) {
+        EmployePartenaire oldEmployePartenaire = employeRepository.findById(employePartenaire.getId()).orElseThrow();
 
-        oldEmploye.setMail(employe.getMail());
-        oldEmploye.setMatricule(employe.getMatricule());
-        oldEmploye.setMetier(employe.getMetier());
-        oldEmploye.setNom(employe.getNom());
-        oldEmploye.setNomUtilisateur(employe.getNomUtilisateur());
-        oldEmploye.setPartenaire(employe.getPartenaire());
-        oldEmploye.setPrenom(employe.getPrenom());
-        oldEmploye.setRole(employe.getRole());
-        oldEmploye.setService(employe.getService());
-        oldEmploye.setTel(employe.getTel());
+        oldEmployePartenaire.setMail(employePartenaire.getMail());
+        oldEmployePartenaire.setMatricule(employePartenaire.getMatricule());
+        oldEmployePartenaire.setMetier(employePartenaire.getMetier());
+        oldEmployePartenaire.setNom(employePartenaire.getNom());
+        oldEmployePartenaire.setNomUtilisateur(employePartenaire.getNomUtilisateur());
+        oldEmployePartenaire.setPartenaire(employePartenaire.getPartenaire());
+        oldEmployePartenaire.setPrenom(employePartenaire.getPrenom());
+        oldEmployePartenaire.setRole(employePartenaire.getRole());
+        oldEmployePartenaire.setService(employePartenaire.getService());
+        oldEmployePartenaire.setTel(employePartenaire.getTel());
 
-        employeRepository.save(oldEmploye);
+        employeRepository.save(oldEmployePartenaire);
     }
 
     public void delete(Long id) {
         employeRepository.deleteById(id);
     }
 
-    public Employe findById(Long id) {
+    public EmployePartenaire findById(Long id) {
         return employeRepository.findById(id).orElseThrow();
     }
 
-    public List<Employe> findByPartenaireId(Long id) {
+    public List<EmployePartenaire> findByPartenaireId(Long id) {
         return employeRepository.findByPartenaireId(id);
     }
 
