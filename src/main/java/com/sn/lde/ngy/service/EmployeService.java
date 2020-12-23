@@ -1,6 +1,9 @@
 package com.sn.lde.ngy.service;
 
 import java.util.List;
+
+import com.sn.lde.ngy.model.Partenaire;
+import com.sn.lde.ngy.repository.PartenaireRepository;
 import org.springframework.stereotype.Service;
 import com.sn.lde.ngy.model.Employe;
 import com.sn.lde.ngy.repository.EmployeRepository;
@@ -8,11 +11,13 @@ import com.sn.lde.ngy.repository.EmployeRepository;
 @Service
 public class EmployeService {
 
-    private EmployeRepository employeRepository;
+    private final EmployeRepository employeRepository;
+    private final PartenaireRepository partenaireRepository;
 
-    public EmployeService(EmployeRepository employeRepository) {
+    public EmployeService(final EmployeRepository employeRepository, PartenaireRepository partenaireRepository) {
         super();
         this.employeRepository = employeRepository;
+        this.partenaireRepository = partenaireRepository;
     }
 
 
@@ -21,11 +26,13 @@ public class EmployeService {
     }
 
     public void create(Employe employe) {
+        Partenaire partenaire = partenaireRepository.findById(employe.getPartenaire().getId()).orElseThrow();
+        employe.setPartenaire(partenaire);
         employeRepository.save(employe);
     }
 
     public void updateEmploye(Employe employe) {
-        Employe oldEmploye = employeRepository.findById(employe.getId()).get();
+        Employe oldEmploye = employeRepository.findById(employe.getId()).orElseThrow();
 
         oldEmploye.setMail(employe.getMail());
         oldEmploye.setMatricule(employe.getMatricule());
@@ -46,7 +53,7 @@ public class EmployeService {
     }
 
     public Employe findById(Long id) {
-        return employeRepository.findById(id).get();
+        return employeRepository.findById(id).orElseThrow();
     }
 
     public List<Employe> findByPartenaireId(Long id) {

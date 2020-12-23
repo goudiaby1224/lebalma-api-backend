@@ -13,7 +13,7 @@ import com.sn.lde.ngy.service.EmployeService;
 @CrossOrigin
 @RestController
 @RequestMapping("/lebalma/employes")
-public class EmployeController {
+class EmployeController {
 
     private EmployeService employeService;
 
@@ -36,8 +36,8 @@ public class EmployeController {
 
     @ResponseStatus(code = HttpStatus.OK)
     @GetMapping("/partenaire/{id}")
-    public Employe findEmployees(@PathVariable Long id) {
-        return employeService.findById(id);
+    public List<Employe> findEmployees(@PathVariable Long id) {
+        return employeService.findByPartenaireId(id);
     }
 
     @ResponseStatus(code = HttpStatus.OK)
