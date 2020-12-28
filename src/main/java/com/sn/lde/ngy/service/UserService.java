@@ -23,6 +23,11 @@ public class UserService {
     public User find(Long id) {
         return userRepository.findById(id).get();
     }
+    
+    public User findByLogin(String login) {
+        return userRepository.getUserByLogin(login);
+    }
+
 
     public List<User> findAll() {
         return userRepository.findAll();

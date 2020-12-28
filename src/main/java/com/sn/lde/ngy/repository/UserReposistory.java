@@ -5,4 +5,5 @@ import com.sn.lde.ngy.model.User;
 
 public interface UserReposistory extends JpaRepository<User, Long> {
 
+	public abstract User getUserByLogin(String login);
 }

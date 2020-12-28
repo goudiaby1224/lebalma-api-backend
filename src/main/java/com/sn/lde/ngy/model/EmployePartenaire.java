@@ -11,7 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-@JsonRootName("employe")
+@JsonRootName("personnel")
 @Table(name = "EMPLOYE")
 @Entity
 public class EmployePartenaire {

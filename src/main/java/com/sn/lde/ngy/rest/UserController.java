@@ -35,6 +35,13 @@ public class UserController {
     public User find(@PathVariable Long id) {
         return userService.find(id);
     }
+    
+    @ResponseStatus(code = HttpStatus.OK)
+    @GetMapping("/connexion/{login}")
+    public User findByLogin(@PathVariable String login) {
+        return userService.findByLogin(login);
+    }
+
 
     @ResponseStatus(code = HttpStatus.OK)
     @GetMapping
