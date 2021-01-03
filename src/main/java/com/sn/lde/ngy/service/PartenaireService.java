@@ -1,6 +1,8 @@
 package com.sn.lde.ngy.service;
 
 import java.util.List;
+import java.util.Optional;
+
 import org.springframework.stereotype.Service;
 import com.sn.lde.ngy.model.Partenaire;
 import com.sn.lde.ngy.repository.PartenaireRepository;
@@ -19,26 +21,25 @@ public class PartenaireService {
         partenaireRepository.save(partenaire);
     }
 
-
     public Partenaire find(Long id) {
-        return partenaireRepository.findById(id).get();
+        Optional<Partenaire> optPartenaire = partenaireRepository.findById(id);
+        return optPartenaire.orElse(new Partenaire());
     }
 
     public List<Partenaire> findAll() {
         return partenaireRepository.findAll();
     }
 
-
     public void delete(Long id) {
         partenaireRepository.deleteById(id);
     }
 
-
-
     public void updatePartenaire(Partenaire partenaire) {
-        Partenaire oldPartenaire = partenaireRepository.findById(partenaire.getId()).get();
-        oldPartenaire.setAdresse(partenaire.getAdresse());
-        partenaireRepository.save(oldPartenaire);
+        Optional<Partenaire> optionalPartenaire = partenaireRepository.findById(partenaire.getId());
+        optionalPartenaire.ifPresent(dbPartenaire -> {
+            dbPartenaire.setAdresse(partenaire.getAdresse());
+            partenaireRepository.save(dbPartenaire);
+        });
     }
 
 }

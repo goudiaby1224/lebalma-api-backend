@@ -1,8 +1,6 @@
 package com.sn.lde.ngy.service;
 
-import com.sn.lde.ngy.model.Partenaire;
 import com.sn.lde.ngy.model.Produit;
-import com.sn.lde.ngy.repository.PartenaireRepository;
 import com.sn.lde.ngy.repository.ProduitRepository;
 import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Service;
@@ -13,15 +11,12 @@ import java.util.Collection;
 public class ProduitService {
 
     private final ProduitRepository produitRepository;
-    private final PartenaireRepository partenaireRepository;
 
-    public ProduitService(final ProduitRepository produitRepository, final PartenaireRepository partenaireRepository) {
+    public ProduitService(final ProduitRepository produitRepository) {
         this.produitRepository = produitRepository;
-        this.partenaireRepository = partenaireRepository;
     }
 
     public Produit save(final Produit produit){
-        //Partenaire partenaire = partenaireRepository.getOne(produit.get)
         return produitRepository.save(produit);
     }
 

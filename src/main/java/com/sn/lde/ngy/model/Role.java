@@ -18,7 +18,7 @@ public enum Role {
 
 
 
-    public void setValue(String value) {
+    void setValue(String value) {
         this.value = value;
     }
 

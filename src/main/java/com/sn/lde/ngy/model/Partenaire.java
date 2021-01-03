@@ -1,8 +1,7 @@
 package com.sn.lde.ngy.model;
 
-import java.util.Collection;
-import java.util.Date;
 import javax.persistence.*;
+import java.util.Date;
 
 @Table(name = "PARTENAIRE")
 @Entity
@@ -25,7 +24,7 @@ public class Partenaire {
     private Date dateMiseEnService;
 
     @Enumerated(EnumType.STRING)
-    private Types Type;
+    private Types type;
 
     public Long getId() {
         return id;
@@ -84,11 +83,11 @@ public class Partenaire {
     }
 
     public Types getType() {
-        return Type;
+        return type;
     }
 
     public void setType(Types type) {
-        Type = type;
+        this.type = type;
     }
 
 }

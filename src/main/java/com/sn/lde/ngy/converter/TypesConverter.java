@@ -5,7 +5,8 @@ import com.sn.lde.ngy.model.Types;
 
 public class TypesConverter extends PropertyEditorSupport {
 
-    public void setAsText(final String text) throws IllegalArgumentException {
+    @Override
+    public void setAsText(final String text) {
         setValue(Types.fromValue(text));
     }
 }

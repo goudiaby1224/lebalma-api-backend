@@ -5,7 +5,8 @@ import com.sn.lde.ngy.model.Role;
 
 public class RoleConverter extends PropertyEditorSupport {
 
-    public void setAsText(final String text) throws IllegalArgumentException {
+    @Override
+    public void setAsText(final String text) {
         setValue(Role.fromValue(text));
     }
 
