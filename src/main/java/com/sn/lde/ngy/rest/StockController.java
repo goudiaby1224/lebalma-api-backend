@@ -1,7 +1,6 @@
 package com.sn.lde.ngy.rest;
 
 import com.sn.lde.ngy.model.StockProduit;
-import com.sn.lde.ngy.repository.StockRepository;
 import com.sn.lde.ngy.service.StockService;
 import com.sn.lde.ngy.utils.ConstantsPath;
 import org.springframework.http.ResponseEntity;
