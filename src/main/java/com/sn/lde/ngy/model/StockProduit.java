@@ -1,5 +1,7 @@
 package com.sn.lde.ngy.model;
 
+import org.springframework.lang.NonNull;
+
 import javax.persistence.*;
 
 @Entity
@@ -35,5 +37,11 @@ public class StockProduit {
 
     public void setProduit(Produit produit) {
         this.produit = produit;
+    }
+
+    public StockProduit update(@NonNull StockProduit stockProduit) {
+        this.quantite = stockProduit.getQuantite();
+        this.produit = stockProduit.getProduit();
+        return  this;
     }
 }
