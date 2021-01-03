@@ -27,9 +27,6 @@ public class Partenaire {
     @Enumerated(EnumType.STRING)
     private Types Type;
 
-    @OneToMany(mappedBy = "partenaire")
-    private Collection<Produit> produits;
-
     public Long getId() {
         return id;
     }
@@ -94,11 +91,4 @@ public class Partenaire {
         Type = type;
     }
 
-    public Collection<Produit> getProduits() {
-        return produits;
-    }
-
-    public void setProduits(Collection<Produit> produits) {
-        this.produits = produits;
-    }
 }

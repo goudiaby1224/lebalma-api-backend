@@ -45,6 +45,14 @@ public class Produit {
         this.description = description;
     }
 
+    public Partenaire getPartenaire() {
+        return partenaire;
+    }
+
+    public void setPartenaire(Partenaire partenaire) {
+        this.partenaire = partenaire;
+    }
+
     public Produit update(Produit produit){
         this.code = produit.getCode();
         this.description = produit.description;
