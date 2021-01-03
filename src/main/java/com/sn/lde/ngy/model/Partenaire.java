@@ -27,7 +27,7 @@ public class Partenaire {
     @Enumerated(EnumType.STRING)
     private Types Type;
 
-    @OneToMany
+    @OneToMany(mappedBy = "partenaire")
     private Collection<Produit> produits;
 
     public Long getId() {
