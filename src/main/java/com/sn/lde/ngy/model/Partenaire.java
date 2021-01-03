@@ -1,5 +1,6 @@
 package com.sn.lde.ngy.model;
 
+import java.util.Collection;
 import java.util.Date;
 import javax.persistence.*;
 
@@ -25,6 +26,9 @@ public class Partenaire {
 
     @Enumerated(EnumType.STRING)
     private Types Type;
+
+    @OneToMany
+    private Collection<Produit> produits;
 
     public Long getId() {
         return id;
@@ -90,4 +94,11 @@ public class Partenaire {
         Type = type;
     }
 
+    public Collection<Produit> getProduits() {
+        return produits;
+    }
+
+    public void setProduits(Collection<Produit> produits) {
+        this.produits = produits;
+    }
 }

@@ -18,8 +18,7 @@ public class Produit {
     @NonNull
     @Column(nullable = false)
     private String description;
-    @OneToOne
-    @NonNull
+    @ManyToOne
     private Partenaire partenaire;
 
     public Long getId() {

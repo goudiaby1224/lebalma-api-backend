@@ -11,7 +11,7 @@ import java.util.Collection;
 
 @CrossOrigin
 @RestController
-@RequestMapping(ConstantsPath.MAIN_LEBALMA_PATH+"produits/")
+@RequestMapping(ConstantsPath.MAIN_LEBALMA_PATH+"produits")
 public class ProduitController {
 
     private final ProduitService produitService;
@@ -35,12 +35,12 @@ public class ProduitController {
         return ResponseEntity.ok(produitService.findAll());
     }
 
-    @GetMapping( path = "{/id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping( path = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Produit>  findbyId(@PathVariable("id") Long produitId){
         return ResponseEntity.ok(produitService.findByProduitId(produitId));
     }
 
-    @GetMapping( value = "{/partenaire/{id}}" , produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping( value = "/partenaire/{id}" , produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Collection<Produit>>  findbPartenaireId(@PathVariable("id") Long partenaireId){
         return ResponseEntity.ok(produitService.findAllByPartenaireId(partenaireId));
     }

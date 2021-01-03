@@ -1,5 +1,6 @@
 package com.sn.lde.ngy.service;
 
+import com.sn.lde.ngy.model.Partenaire;
 import com.sn.lde.ngy.model.Produit;
 import com.sn.lde.ngy.repository.ProduitRepository;
 import org.springframework.lang.NonNull;
