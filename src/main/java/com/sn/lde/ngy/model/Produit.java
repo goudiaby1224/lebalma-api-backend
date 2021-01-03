@@ -55,7 +55,7 @@ public class Produit {
 
     public Produit update(Produit produit){
         this.code = produit.getCode();
-        this.description = produit.description;
+        this.description = produit.getDescription();
         this.partenaire = produit.getPartenaire();
         return this;
     }
