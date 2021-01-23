@@ -29,6 +29,6 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
 
     @Override
     public void configure(ResourceServerSecurityConfigurer resources) {
-        resources.resourceId("ngy-oauth");
+        resources.resourceId("erp-rest");
     }
 }
