@@ -12,7 +12,7 @@ import com.sn.lde.ngy.service.EmployeService;
 
 @CrossOrigin
 @RestController
-@RequestMapping("/lebalma/employes")
+@RequestMapping("/stock/employes")
 class EmployeController {
 
     private EmployeService employeService;

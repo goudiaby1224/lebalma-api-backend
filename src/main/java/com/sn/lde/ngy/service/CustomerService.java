@@ -4,40 +4,40 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import com.sn.lde.ngy.model.ServiceOumou;
+import com.sn.lde.ngy.model.Customer;
 import com.sn.lde.ngy.repository.ServiceOumouRepository;
 
 @Service
-public class ServiceOumouService {
+public class CustomerService {
 
     private ServiceOumouRepository serviceOumouRepository;
 
-    public ServiceOumouService(ServiceOumouRepository serviceOumouRepository) {
+    public CustomerService(ServiceOumouRepository serviceOumouRepository) {
         super();
         this.serviceOumouRepository = serviceOumouRepository;
     }
     
-    public List<ServiceOumou> findAll()
+    public List<Customer> findAll()
     {
         return serviceOumouRepository.findAll();
     }
     
-    public ServiceOumou findById(Long id) {
+    public Customer findById(Long id) {
         
         return serviceOumouRepository.findById(id).get();
     }
     
-    public void create(ServiceOumou serviceOumou)
+    public void create(Customer customer)
     {
-        serviceOumouRepository.save(serviceOumou);
+        serviceOumouRepository.save(customer);
     }
     
-    public void update(ServiceOumou serviceOumou)
+    public void update(Customer customer)
     {
-        ServiceOumou oldService=serviceOumouRepository.findById(serviceOumou.getId()).get();
+        Customer oldService=serviceOumouRepository.findById(customer.getId()).get();
         
-        oldService.setNom(serviceOumou.getNom());
-        oldService.setResponsable(serviceOumou.getResponsable());
+        oldService.setNom(customer.getNom());
+        oldService.setResponsable(customer.getResponsable());
         
         serviceOumouRepository.save(oldService);
     }

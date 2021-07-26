@@ -12,25 +12,25 @@ import com.sn.lde.ngy.service.PartenaireService;
 
 @CrossOrigin
 @RestController
-@RequestMapping("/lebalma/partenaires")
-public class PartenaireController {
+@RequestMapping("/stock/associates")
+public class AssociateController {
 
     private PartenaireService partenaireService;
 
-    public PartenaireController(PartenaireService partenaireService) {
+    public AssociateController(PartenaireService partenaireService) {
         super();
         this.partenaireService = partenaireService;
     }
 
     @ResponseStatus(code = HttpStatus.OK)
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
-    public void createPartenaire(@RequestBody Partenaire partenaire) {
+    public void create(@RequestBody Partenaire partenaire) {
         partenaireService.createPartenaire(partenaire);
     }
 
     @ResponseStatus(code = HttpStatus.OK)
     @PutMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
-    public void updatePartenaire(@RequestBody Partenaire partenaire) {
+    public void update(@RequestBody Partenaire partenaire) {
         partenaireService.updatePartenaire(partenaire);
     }
 

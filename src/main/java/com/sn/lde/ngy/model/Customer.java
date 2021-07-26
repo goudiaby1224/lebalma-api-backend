@@ -3,9 +3,9 @@ package com.sn.lde.ngy.model;
 import javax.persistence.*;
 import java.util.List;
 
-@Table( name ="SERVICEOUMOU" )
+@Table( name ="CUSTOMER" )
 @Entity
-public class ServiceOumou {
+public class Customer {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

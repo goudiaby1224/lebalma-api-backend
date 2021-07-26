@@ -34,7 +34,7 @@ public class UtilisateurOumou {
     @Enumerated(EnumType.STRING)
     private Role role;
     @ManyToOne
-    private ServiceOumou serviceOumou;
+    private Customer customer;
 
     public Long getId() {
         return id;

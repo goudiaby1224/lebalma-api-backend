@@ -12,11 +12,11 @@ import java.util.Collection;
 @CrossOrigin
 @RestController
 @RequestMapping(ConstantsPath.MAIN_LEBALMA_PATH+"produits")
-public class ProduitController {
+public class ProductControler {
 
     private final ProduitService produitService;
 
-    public ProduitController(ProduitService produitService) {
+    public ProductControler(ProduitService produitService) {
         this.produitService = produitService;
     }
 
